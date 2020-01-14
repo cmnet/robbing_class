@@ -3,9 +3,9 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+@app.route('/abc/123')
+def index():
+    return "Hello, world!"
 
 
 if __name__ == '__main__':
