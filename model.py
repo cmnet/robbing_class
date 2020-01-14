@@ -17,9 +17,8 @@ class Teacher(db.Entity):
     """用户表"""
     _table_ = 'users'
     id = PrimaryKey(int, column='user_id', auto=True)  # id
-    mobile = Required(str, 11, unique=True, nullable=True)
     name = Required(str, 20, nullable=True)
-    head_photo = Optional(str, 128)             # 用户头像
+    photo = Optional(str, 128)             # 用户头像
     brief = Optional(str, 256)                  # 简介
 
     # @property
