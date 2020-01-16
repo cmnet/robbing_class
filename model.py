@@ -33,13 +33,13 @@ class Teacher(db.Entity):
             return True
         return False
 
+
 class Student(db.Entity):
     id = PrimaryKey(int, auto=True)
     mobile = Optional(str)
     name = Optional(str)
     enroll_year = Optional(int)
     class_name = Optional(str)
-
 
 
 # False指数据库表存在的情况，True指表不存在的情况下会自动创建表结构
