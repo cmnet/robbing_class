@@ -12,10 +12,10 @@ def index():
 if __name__ == '__main__':
     s={
         "id":"1",
-        "name":"李一一",
+        "name":"王五",
         "mobile":"19982996666",
         "enroll_year":"2020",
-        "class_name":"编程班"
+        "class_name":"小猫编程"
     }
     student.update(s)
 
