@@ -42,5 +42,19 @@ class Student(db.Entity):
     class_name = Optional(str)
 
 
+class Lesson(db.Entity):
+    id = PrimaryKey(int, auto=True)
+    name = Optional(str)
+    teacher = Optional(str)
+    student_number = Optional(str)
+    start_time = Optional(str)
+    address = Optional(str)
+    price = Optional(str)
+    robbing_start_time = Optional(str)
+    robbing_end_time = Optional(str)
+    remark = Optional(str)
+    brief = Optional(str)
+
+
 # False指数据库表存在的情况，True指表不存在的情况下会自动创建表结构
 db.generate_mapping(create_tables=True)

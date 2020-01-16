@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3836b070-f47d-440d-ad39-3c62b3c4f75b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bll/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bll/lesson.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bll/student.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bll/teacher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/新建文本文档 (2).txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/lesson.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/lesson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +23,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="147" />
+    <option name="y" value="-3" />
+    <option name="width" value="1797" />
+    <option name="height" value="1020" />
   </component>
   <component name="ProjectId" id="1WK6YAlxQ80PCdXa9pcqJFuOC5O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
