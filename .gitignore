@@ -45,6 +45,7 @@ new_venv/*.*
 log/*.*
 .idea
 .idea/
+.idea/*.*
 api.log
 *.pyc
 .vscode
