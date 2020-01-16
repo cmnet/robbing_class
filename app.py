@@ -3,7 +3,7 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/abc/123')
+@app.route('/abc')
 def index():
     return "Hello, world!"
 
