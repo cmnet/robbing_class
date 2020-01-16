@@ -14,7 +14,7 @@ if __name__ == '__main__':
         "id":"1",
         "name":"王五",
         "mobile":"19982996666",
-        "enroll_year":"2020",
+        "enroll_year":"2019",
         "class_name":"小猫编程"
     }
     student.update(s)
