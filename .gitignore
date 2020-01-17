@@ -41,6 +41,7 @@ nosetests.xml
 
 log/*.*
 .idea/
+.idea/*.*
 api.log
 *.pyc
 .vscode
