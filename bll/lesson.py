@@ -13,21 +13,23 @@ def add(lsn):
 @db_session
 def delete(lesson_id):
     lesson = Lesson.get(id=lesson_id)
-    lesson.delete()
-    commit()
+    if lesson:
+        lesson.delete()
+        commit()
 
 
 @db_session
 def update(lsn):
     lesson = Lesson.get(id=lsn["id"])
-    lesson.name = lsn["name"]
-    lesson.teacher = lsn["teacher"]
-    lesson.student_number = lsn["student_number"]
-    lesson.start_time = lsn["start_time"]
-    lesson.address = lsn["address"]
-    lesson.price = lsn["price"]
-    lesson.robbing_start_time = lsn["robbing_start_time"]
-    lesson.robbing_end_time = lsn["robbing_end_time"]
-    lesson.brief = lsn["brief"]
-    lesson.remark = lsn["remark"]
-    commit()
+    if lesson:
+        lesson.name = lsn["name"]
+        lesson.teacher = lsn["teacher"]
+        lesson.student_number = lsn["student_number"]
+        lesson.start_time = lsn["start_time"]
+        lesson.address = lsn["address"]
+        lesson.price = lsn["price"]
+        lesson.robbing_start_time = lsn["robbing_start_time"]
+        lesson.robbing_end_time = lsn["robbing_end_time"]
+        lesson.brief = lsn["brief"]
+        lesson.remark = lsn["remark"]
+        commit()

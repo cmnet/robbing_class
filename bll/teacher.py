@@ -13,14 +13,16 @@ def add(t):
 @db_session
 def delete(teacher_id):
     teacher = Teacher.get(id=teacher_id)
-    teacher.delete()
-    commit()
+    if teacher:
+        teacher.delete()
+        commit()
 
 
 @db_session
 def update(teacher):
     t = Teacher.get(id=teacher["id"])
-    t.name = teacher["name"]
-    t.photo = teacher["photo"]
-    t.brief = teacher["brief"]
-    commit()
+    if t:
+        t.name = teacher["name"]
+        t.photo = teacher["photo"]
+        t.brief = teacher["brief"]
+        commit()
