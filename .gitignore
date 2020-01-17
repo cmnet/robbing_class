@@ -39,9 +39,6 @@ nosetests.xml
 .project
 .pydevproject
 
-new_venv/
-new_venv/*.*
-
 log/*.*
 .idea
 .idea/
@@ -49,3 +46,6 @@ log/*.*
 api.log
 *.pyc
 .vscode
+
+new_venv/
+new_venv/*.*
