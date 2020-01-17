@@ -40,9 +40,7 @@ nosetests.xml
 .pydevproject
 
 log/*.*
-.idea/workspace.xml
 .idea/
-.idea/*.*
 api.log
 *.pyc
 .vscode
