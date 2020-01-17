@@ -17,9 +17,10 @@ class Teacher(db.Entity):
     """用户表"""
     _table_ = 'users'
     id = PrimaryKey(int, column='user_id', auto=True)  # id
-    name = Required(str, 20, nullable=True)
-    photo = Optional(str, 128)             # 用户头像
+    name = Required(str, 20, nullable=False)
+    photo = Optional(str, 128)                  # 用户头像
     brief = Optional(str, 256)                  # 简介
+    lessons = Set('Lesson')
 
     # @property
     # def get_classes_nums(self):  # 获取班级数
@@ -40,12 +41,13 @@ class Student(db.Entity):
     name = Optional(str)
     enroll_year = Optional(int)
     class_name = Optional(str)
+    lessons = Set('StudentLesson')
 
 
 class Lesson(db.Entity):
     id = PrimaryKey(int, auto=True)
     name = Optional(str)
-    teacher = Optional(str)
+    teacher = Optional('Teacher', nullable=True)
     student_number = Optional(str)
     start_time = Optional(str)
     address = Optional(str)
@@ -54,6 +56,14 @@ class Lesson(db.Entity):
     robbing_end_time = Optional(str)
     remark = Optional(str)
     brief = Optional(str)
+    students = Set('StudentLesson')
+
+
+class StudentLesson(db.Entity):
+    _table_ = 'student_lessons'
+    id = PrimaryKey(int, auto=True)
+    student = Optional('Student', column='student_id', nullable=True)
+    lesson = Optional('Lesson', column='lesson_id',  nullable=True)
 
 
 # False指数据库表存在的情况，True指表不存在的情况下会自动创建表结构
