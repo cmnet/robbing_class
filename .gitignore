@@ -40,7 +40,6 @@ nosetests.xml
 .pydevproject
 
 log/*.*
-.idea
 .idea/
 .idea/*.*
 api.log
