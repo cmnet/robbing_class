@@ -5,6 +5,7 @@ __author__ = "Jelly"
 
 # ============================================
 
+
 @db_session
 def add(lsn):
     lesson = Lesson(**lsn)
