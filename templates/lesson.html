@@ -1,0 +1,38 @@
+<!--__author__ = "Jelly" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程列表</title>
+</head>
+<body>
+    {% for lsn in data %}
+        <br>
+        课程名称 :  {{ lsn.name }}<br>
+        授课老师 :  {{ lsn.teacher }}<br>
+        班级人数 :  {{ lsn.student_number }}人<br>
+        开课时间 :  {{ lsn.start_time }}<br>
+        开课地点 :  {{ lsn.address }}<br>
+        课程费用 :  {{ lsn.price }}<br>
+        开抢时间 :  {{ lsn.robbing_start_time }}<br>
+        结束抢课时间 :  {{ lsn.robbing_end_time }}<br>
+        课程简介 :  {{ lsn.brief }}<br>
+        备注 :  {{ lsn.remark }}<br>
+
+        {% if loop.index != length %}
+            <br>
+            =================================================<br>
+            +++++++++++++++++++++++++++++++++++++++++++++++++<br>
+            =================================================<br>
+        {% endif %}
+        <a href="/lesson/delete?id={{ lsn.id }}">删除</a><br>
+        <a href="/lesson/edit?id={{ lsn.id }}">编辑</a><br><br>
+    {% endfor %}
+
+
+
+    <a href="/lesson/add">新增课程</a>
+    <br>
+
+</body>
+</html>
