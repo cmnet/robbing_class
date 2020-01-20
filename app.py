@@ -1,8 +1,6 @@
-
 from flask import Flask, render_template, request, redirect
 from bll import student, lesson, teacher
 from model import *
-
 
 
 @app.route('/')
@@ -30,10 +28,12 @@ def index():
     # print("ok")
     return "Hello, world!"
 
+
 @app.route('/teacher/list')
 def teacher_list():
     teachers = teacher.query()
     return render_template('teacher.html',data=teachers)
+
 
 @app.route("/teacher/add")
 def add_teacher():
@@ -47,8 +47,6 @@ def edit_teacher():
     return render_template("edit_teacher.html",teacher=data)
 
 
-
-
 @app.route("/teacher/save",methods=["POST"])
 def save_teacher():
     name = request.form["name"]
@@ -58,11 +56,9 @@ def save_teacher():
 
     teacher.add(_teacher)
 
-
     return redirect("/teacher/list")
     # photo = requst.files[0]
     
-
 
 @app.route("/teacher/update",methods=["POST"])
 def update_teacher():
@@ -74,8 +70,8 @@ def update_teacher():
 
     teacher.update(_teacher)
 
-
     return redirect("/teacher/list")
+
 
 @app.route("/teacher/delete")
 def delete_teacher():
