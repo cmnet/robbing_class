@@ -1,0 +1,9 @@
+<form action="/teacher/update" method="post">
+    <input type="hidden" name="id" value="{{teacher.id}}">
+    姓名:<input type="text" name="name"  value={{teacher.name}}    style="width:100px;"><br>
+    照片:<input type="file" name="photo"><br>
+    简介:<textarea rows="5" cols="50" name="brief">{{ teacher.brief }}</textarea><br>
+
+    <input type="submit" value="保存">
+    
+</form>

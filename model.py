@@ -19,7 +19,7 @@ class Teacher(db.Entity):
     id = PrimaryKey(int, column='user_id', auto=True)  # id
     name = Required(str, 20, nullable=False)
     photo = Optional(str, 128)                  # 用户头像
-    brief = Optional(str, 256)                  # 简介
+    brief = Optional(str, 256)                  # 简介(￣▽￣)""
     lessons = Set('Lesson')
 
     # @property

@@ -26,3 +26,41 @@ def update(teacher):
         t.photo = teacher["photo"]
         t.brief = teacher["brief"]
         commit()
+
+@db_session
+def info(teacher_id):
+    t = Teacher.get(id=teacher_id)
+    data ={
+            "id":t.id,
+            "name":t.name,
+            "photo":t.photo,
+            "brief":t.brief,
+            "lessons":[lesson.to_dict() for lesson in t.lessons]        
+        }
+
+    return data
+
+@db_session
+def query(name=None):
+    if name:
+        teachers = select(t for t in Teacher if name in t.name)
+    else:
+        teachers = select(t for t in Teacher)
+
+    teacher_list = [t.to_dict() for t in teachers]
+
+
+    data = [
+        {
+            "id":t.id,
+            "name":t.name,
+            "photo":t.photo,
+            "brief":t.brief,
+            "lessons":[lesson.to_dict() for lesson in t.lessons]        
+        }
+        for t in teachers
+    ]
+
+    return data
+
+
