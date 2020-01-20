@@ -2,30 +2,10 @@ from flask import Flask, render_template, request, redirect
 from bll import student, lesson, teacher
 from model import *
 
+app = Flask(__name__)
 
 @app.route('/')
 def index():
-
-    lsn = {
-        "name": "数学课",
-        "teacher": 2,
-        "student_number": "25",
-        "start_time": "2020年3月24日",
-        "address": "高升桥路9号918",
-        "price": "¥258/2.5小时",
-        "robbing_start_time": "2月29日00:00开抢",
-        "robbing_end_time": "3月8日12:00截止",
-        "brief": "课程难度:★★★★, 授课老师有13余年教学经验, 课堂高效, 趣味学习",
-        "remark": "此课程较其他课程稍难, 建议有扎实基础的同学报名"
-    }
-    # lesson.add(lsn)
-    # t = {
-    #     "name": "刘老师",
-    #     "photo": "ㄟ( ▔ —— ▔ )ㄏ",
-    #     "brief": "世界上最牛逼的老师"
-    # }
-    # teacher.add(t)
-    # print("ok")
     return "Hello, world!"
 
 
@@ -47,15 +27,12 @@ def edit_teacher():
     return render_template("edit_teacher.html",teacher=data)
 
 
-@app.route("/teacher/save",methods=["POST"])
+@app.route("/teacher/save", methods=["POST"])
 def save_teacher():
     name = request.form["name"]
     brief = request.form["brief"]
-
-    _teacher = {"name":name,"brief":brief}
-
+    _teacher = {"name": name, "brief": brief}
     teacher.add(_teacher)
-
     return redirect("/teacher/list")
     # photo = requst.files[0]
     
@@ -66,7 +43,7 @@ def update_teacher():
     name = request.form["name"]
     brief = request.form["brief"]
 
-    _teacher = {"name":name,"brief":brief, "id": int(id), "photo": ""}
+    _teacher = {"name": name, "brief": brief, "id": int(id), "photo": ""}
 
     teacher.update(_teacher)
 
@@ -78,6 +55,10 @@ def delete_teacher():
     teacher_id = request.args["id"]
     teacher.delete(int(teacher_id))
     return redirect("/teacher/list")
+
+# ======================================================
+# ******************************************************
+# ======================================================
 
 
 @app.route('/lesson/list')
@@ -187,6 +168,10 @@ def delete_lesson():
     lesson_id = request.args["id"]
     lesson.delete(int(lesson_id))
     return redirect("/lesson/list")
+
+# ======================================================
+# ******************************************************
+# ======================================================
 
 
 @app.route("/student/list")
