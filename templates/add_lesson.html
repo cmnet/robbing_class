@@ -1,0 +1,43 @@
+<!--__author__ = "Jelly" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增课程</title>
+</head>
+<body>
+    <form action="/lesson/save" method="post">
+        课程名称 :  <input type="text" name="name" style="width:80px;"><br>
+        授课老师 :  <select name="teacher">
+        <option value="1">zhanglaos1</option>
+        <option value="8">zhanglaos2</option>
+    </select>
+        <br>
+        班级人数 :  <input type="text" name="student_number" style="width:20px;"><br>
+        开课时间 :
+        <input type="text" name="start_time_year" style="width:40px;">年
+        <input type="text" name="start_time_month" style="width:20px;">月
+        <input type="text" name="start_time_day" style="width:20px;">日
+        <input type="text" name="start_time_hour" style="width:20px;">时
+        <br>
+        开课地点 :
+        <input type="text" name="address_province" style="width:80px;">省 &nbsp;&nbsp;&nbsp;
+        <input type="text" name="address_city" style="width:80px;">市 &nbsp;&nbsp;&nbsp;
+        <input type="text" name="address_area" style="width:90px;">区 &nbsp;&nbsp;&nbsp;<br>
+        具体位置：<input type="text" name="address" style="width:90px;"><br>
+        <br>
+        课程费用 :  <input type="text" name="price"><br>
+        开抢时间 :
+        <input type="text" name="robbing_start_time_month" style="width:20px;">月
+        <input type="text" name="robbing_start_time_day" style="width:20px;">日
+        <input type="text" name="robbing_start_time_hour" style="width:20px;">时<br>
+        结束抢课时间 :
+        <input type="text" name="robbing_end_time_month" style="width:20px;">月
+        <input type="text" name="robbing_end_time_day" style="width:20px;">日
+        <input type="text" name="robbing_end_time_hour" style="width:20px;">时<br>
+        课程简介 :  <textarea rous="5" cols="100" name="brief"></textarea><br>
+        备注 :  <input type="text" name="remark"><br>
+        <input type="submit" value="保存">
+    </form>
+</body>
+</html>
