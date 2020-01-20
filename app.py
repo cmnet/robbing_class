@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, redirect
+<<<<<<< HEAD
 # from bll import student
+=======
+from bll import student
+>>>>>>> 242a790af735b17e7334eb2a5884ce82701cbfd9
 from bll import lesson
 from model import *
 app = Flask(__name__)
@@ -7,6 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+<<<<<<< HEAD
     lsn = {
         "name": "数学课",
         "teacher": 2,
@@ -134,3 +139,16 @@ def delete_lesson():
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
+=======
+    return "hello, world"
+
+
+@app.route("/student/list")
+def student_list():
+    students = student.query()
+    return render_template("student_list.html", data=students)
+
+
+if __name__ == '__main__':
+    app.run()
+>>>>>>> 242a790af735b17e7334eb2a5884ce82701cbfd9
