@@ -1,0 +1,16 @@
+    {% for teacher in data %}
+    姓名:{{teacher.name}}<br>
+    照片:{{teacher.photo}}<br>
+    简介:{{teacher.brief}}<br>
+    课程:<br>
+        {% for lesson in teacher.lessons %}
+            {{ lesson.name }}<br>
+       
+        {% endfor %}
+        <br>
+        <a href="/teacher/edit?id={{teacher.id}}">编辑</a>&nbsp;&nbsp;
+        <a href="/teacher/delete?id={{teacher.id}}">删除</a><br>
+        ₪-------------------------------------₪<br>
+    {% endfor %}
+    <br>
+    <a href="/teacher/add">新增老师</a>
