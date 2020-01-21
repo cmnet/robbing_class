@@ -9,7 +9,11 @@
     <form action="/lesson/update" method="post">
          <input type="hidden" name="id" value="{{ lesson.id }}">
         课程名称 :  <input type="text" name="name" value="{{ lesson.name }}" style="width:80px;"><br>
-        授课老师 :  <input type="text" name="teacher" value="{{ lesson.teacher }}" style="width:80px;"><br>
+        授课老师 :  <select name="teacher">
+        {% for teacher in teachers %}
+        <option value="{{ teacher.id }}">{{ teacher.name }}</option>
+        {% endfor %}
+        </select>
         班级人数 :  <input type="text" name="student_number" value="{{ lesson.student_number }}" style="width:20px;"><br>
         开课时间 :
         <input type="text" name="start_time_year" value="{{ lesson.start_time_year }}" style="width:40px;">年

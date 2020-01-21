@@ -4,6 +4,7 @@ from model import *
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return "Hello, world!"
@@ -12,7 +13,7 @@ def index():
 @app.route('/teacher/list')
 def teacher_list():
     teachers = teacher.query()
-    return render_template('teacher.html',data=teachers)
+    return render_template('teacher.html', data=teachers)
 
 
 @app.route("/teacher/add")
@@ -24,7 +25,7 @@ def add_teacher():
 def edit_teacher():
     teacher_id = request.args["id"]
     data = teacher.info(int(teacher_id))
-    return render_template("edit_teacher.html",teacher=data)
+    return render_template("edit_teacher.html", teacher=data)
 
 
 @app.route("/teacher/save", methods=["POST"])
@@ -37,7 +38,7 @@ def save_teacher():
     # photo = requst.files[0]
     
 
-@app.route("/teacher/update",methods=["POST"])
+@app.route("/teacher/update", methods=["POST"])
 def update_teacher():
     id = request.form["id"]
     name = request.form["name"]
@@ -63,13 +64,15 @@ def delete_teacher():
 
 @app.route('/lesson/list')
 def lesson_list():
-    res = lesson.query()
+    keyword = request.args.get("keyword")
+    res = lesson.query(keyword)
     return render_template('lesson.html', data=res, length=len(res))
 
 
 @app.route("/lesson/add")
 def add_lesson():
-    return render_template('add_lesson.html')
+    res = teacher.query()
+    return render_template('add_lesson.html', teachers=res)
 
 
 @app.route("/lesson/edit")
@@ -181,4 +184,4 @@ def student_list():
 
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    app.run(port=5008)
