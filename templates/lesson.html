@@ -37,8 +37,11 @@
     <div style="display: flex;float:left;">
     {% for lsn in data %}
         <div class="lessonDiv">
-        ID: {{ lsn.id }}<div class="right"><a href="/lesson/edit?id={{ lsn.id }}"><img class="icon_1" src="/static/icon/edit.png"></a>&nbsp;&nbsp;
+        ID: {{ lsn.id }}
+            {% if is_admin == True %}
+            <div class="right"><a href="/lesson/edit?id={{ lsn.id }}"><img class="icon_1" src="/static/icon/edit.png"></a>&nbsp;&nbsp;
             <a href="/lesson/delete?id={{ lsn.id }}"><img class="icon_1" src="/static/icon/close_filled.png"></a></div><br>
+            {% endif %}
         课程名称 :  {{ lsn.name }}<br>
         授课老师 :  {{ lsn.teacher }}<br>
         班级人数 :  {{ lsn.student_number }}人<br>

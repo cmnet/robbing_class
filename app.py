@@ -66,7 +66,7 @@ def delete_teacher():
 def lesson_list():
     keyword = request.args.get("keyword")
     res = lesson.query(keyword)
-    return render_template('lesson.html', data=res, length=len(res))
+    return render_template('lesson.html', data=res, length=len(res), is_admin=0)
 
 
 @app.route("/lesson/add")
