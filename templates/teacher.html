@@ -1,16 +1,48 @@
+<html>
+    <head>
+        <title>老师</title>
+        <style>
+            .teacherDiv{
+                margin-left: 10px;
+                background-color: aquamarine;
+                color: brown;
+                margin-top:20px;
+                width:300px;
+                border-radius:10px;
+                padding:10px;
+            }
+            .right{
+                float: right;
+            }
+            .icon{
+                width: 24px;
+                height: 24px;
+            }
+        </style>
+    </head>
+<form action="/teacher/list" method="GET">
+请输入关键字:<input type="text" name="keyword" placeholder="请输入姓名/简介"> <input type="submit" value="查询">
+</form>
+    
+    
+    <div style="display: flex">
     {% for teacher in data %}
-    姓名:{{teacher.name}}<br>
+
+    <div class="teacherDiv">
+    姓名:{{teacher.name}}     <div class="float: right"><a href="/teacher/edit?id={{teacher.id}}"><img class="icon" src="/static/icon/edit.png"></a>&nbsp;&nbsp;<a href="/teacher/delete?id={{teacher.id}}"><img class="icon" src="/static/icon/delete.png"></a></div><br>
     照片:{{teacher.photo}}<br>
     简介:{{teacher.brief}}<br>
     课程:<br>
+   
         {% for lesson in teacher.lessons %}
             {{ lesson.name }}<br>
-       
+    </div>
         {% endfor %}
-        <br>
-        <a href="/teacher/edit?id={{teacher.id}}">编辑</a>&nbsp;&nbsp;
-        <a href="/teacher/delete?id={{teacher.id}}">删除</a><br>
-        ₪-------------------------------------₪<br>
+
+
     {% endfor %}
+    </div>    
+
     <br>
     <a href="/teacher/add">新增老师</a>
+</html>>

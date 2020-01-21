@@ -41,9 +41,9 @@ def info(teacher_id):
     return data
 
 @db_session
-def query(name=None):
-    if name:
-        teachers = select(t for t in Teacher if name in t.name)
+def query(keyword: str = None) ->list:
+    if keyword:
+        teachers = select(t for t in Teacher if keyword in t.name or keyword in t.brief)
     else:
         teachers = select(t for t in Teacher)
 

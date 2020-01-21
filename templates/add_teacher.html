@@ -1,8 +1,26 @@
+<html>
+    <style>
+        .input{
+            border: 1px solid #000000;
+            height: 40px;
+            border-radius: 10px;
+            width: 200px;
+            font-size: 16px;
+            padding: 10px;
+
+        }
+        .div{
+            background-color: bisque;
+            width: 200px;
+        }
+    </style>
+
 <form action="/teacher/save" method="post">
-    姓名:<input type="text" name="name" style="width:100px;"><br>
+    姓名:<div class="div"><input type="text" name="name" style="width:100px;" class="input"><br>
     照片:<input type="file" name="photo"><br>
     简介:<textarea rows="5" cols="50" name="brief"></textarea><br>
 
     <input type="submit" value="保存">
     
 </form>
+</html>

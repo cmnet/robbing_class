@@ -1,4 +1,4 @@
-
+import os
 from flask import Flask, render_template, request, redirect
 from bll import student, lesson, teacher
 from model import *
@@ -13,7 +13,8 @@ def index():
 
 @app.route('/teacher/list')
 def teacher_list():
-    teachers = teacher.query()
+    keyword = request.args.get("keyword")
+    teachers = teacher.query(keyword)
     return render_template('teacher.html',data=teachers)
 
 
@@ -33,6 +34,12 @@ def edit_teacher():
 def save_teacher():
     name = request.form["name"]
     brief = request.form["brief"]
+    # photo = request.files['photo']
+    # file_name = photo.fliename
+    # path = os.getcwd() + "/static/photo" + file_name
+
+    # photo.save() 
+    # photo_url = "/static/photo" + file_name
 
     _teacher = {"name":name,"brief":brief}
 
