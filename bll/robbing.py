@@ -12,7 +12,7 @@ def robbing(student_id: int, lesson_id: int) -> bool:
             # 可以抢课
             student = Student.get(id=student_id)
             student_lesson = {
-                "student": student, 
+                "student": student,
                 "lesson": lesson
             }
             StudentLesson(**student_lesson)
