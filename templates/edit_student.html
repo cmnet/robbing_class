@@ -1,0 +1,9 @@
+<form action="/student/update" method="post">
+    <input type="hidden" name="id" value="{{student.id}}">
+    姓名:<input type="text" name="name"  value="{{student.name}}"   style="width:100px;"><br>
+    手机:<input type="text" name="mobile"  value="{{student.mobile}}"   style="width:100px;"><br>
+    班级:<input type="text" name="class_name"  value="{{student.class_name}}"    style="width:100px;"><br>
+    入学年份:<input type="text" name="enroll_year"  value="{{student.enroll_year}}"    style="width:100px;"><br>
+
+    <input type="submit" value="保存">  
+</form>

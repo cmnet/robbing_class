@@ -45,19 +45,21 @@ def info(student_id: int) -> dict:
         "id": s.id,
         "name": s.name,
         "enroll_year": s.enroll_year,
+        "class_name": s.class_name,
+        "mobile": s.mobile,
         "lessons": [lesson.to_dict() for lesson in s.lessons]
     }
     return data
 
 
 @db_session
-def query(name: str = None) -> list:
+def query(keyword: str = None) -> list:
     """
     @param name:
     @return:
     """
-    if name:
-        students = select(s for s in Student if name in s.name)
+    if keyword:
+        students = select(s for s in Student if keyword in s.name or keyword in s.mobile)
     else:
         students = select(s for s in Student)
 
@@ -66,6 +68,8 @@ def query(name: str = None) -> list:
             "id": s.id,
             "name": s.name,
             "enroll_year": s.enroll_year,
+            "mobile":s.mobile,
+            "class_name":s.class_name,
             "lessons": [lesson.to_dict() for lesson in s.lessons]
         }
         for s in students
