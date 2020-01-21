@@ -61,5 +61,3 @@ def query(name=None):
     ]
 
     return data
-
-

@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>新增学生</title>
+        <head>
+            <style>
+                .input{
+                    border:0px;
+                    width: 200px;
+                    font-size: 14px;
+                    padding:5px ;
+                    border-bottom: 1px solid #000000;
+                }
+            </style>
+        </head>
+    <body>
+
+        <form action="/student/save" method="POST">
+
+            姓名：<div class="div"><input type="text" name="name" placeholder="请输入你的名字" class="input"></div> <br>
+            入学年份:<input type="text" name="enroll_year"> <br>
+            班级:<input type="text" name="class_name"> <br>
+            手机号:<input type="text" name="mobile"><br>
+            <input type="submit" value="保存">
+        </form>
+    </body>
+<html>    

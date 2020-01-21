@@ -1,4 +1,60 @@
-{% for student in data %}
-    姓名： {{ student.name }}  <br>
-    入学年份: {{ student.enroll_year }} <br>
-{% endfor %}
+<html>
+    <head>
+        <title>学生列表</title>
+        <style>
+            .studenttDiv{
+                margin-left: 10px;
+                background-color:orange;
+                color:lawngreen;
+                margin-top:20px;
+                width:250px;
+                border-radius:10px;
+                padding:10px;
+
+            }
+            .right{
+                float:right;
+            }
+            .icon{
+                width: 24px;
+                height: 24px;
+            }
+        </style>
+
+    </head>
+<body>
+</head>
+<body style="background-color: #241717;">
+
+<div class="vidage" >
+
+    <video id="vidage" class="vidage-video" preload="metadata" loop autoplay muted>
+        <source src="/static/icon/2ff158a6abb17bb9f95f2333df3efa04_wm.mp4" type="video/webm">
+        <source src="/static/icon/2ff158a6abb17bb9f95f2333df3efa04_wm.mp4" type="video/mp4">
+    </video>
+
+</div>
+    <form action="/student/list"method="get">    
+    请输入关键字:<input type ="text" name="keyword"placeholder="请输入名字/手机"><input type = "submit"value="查询">
+    </form>
+    <a href="/student/add"><img class="icon"src="/static/icon/add.png"></a><br>
+    <div style="display: flex;">
+
+
+
+
+
+
+        {%for student in data%}
+        <div class="studenttDiv">
+            姓名:{{student.name}} <div class="right" ><a href="/student/edit?id={{student.id}}"> <img  class="icon" src="/static/icon/edit.png"></a>&nbsp;&nbsp;<img  class="icon" src="/static/icon/close_filled.png"></div> <br>
+            入学年份:{{student.enroll_year}} <br>
+            班级:{{student.class_name}} <br>
+            手机:{{student.mobile}} <br>
+        </div> 
+        {%endfor%}
+
+        <a href="/student/add">新增学生</a>
+
+    </body>
+</html>

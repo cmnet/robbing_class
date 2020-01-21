@@ -179,8 +179,52 @@ def delete_lesson():
 
 @app.route("/student/list")
 def student_list():
-    students = student.query()
+    keyword=request.args.get("keyword")
+    students = student.query(keyword)
     return render_template("student_list.html", data=students)
+
+@app.route("/student/add")
+def add_student():
+    return render_template("add_student.html")
+
+@app.route("/student/edit")
+def edit_student():
+    student_id = request.args.get("id")
+    data = student.info(int(student_id))
+    return render_template("edit_student.html", student=data)
+
+
+@app.route("/student/save", methods=["POST"])
+def save_student():   
+    name = request.form["name"]
+    class_name = request.form["class_name"]
+    enroll_year = request.form["enroll_year"]
+    mobile = request.form["mobile"]
+    _student = {
+        "name": name,
+        "class_name":class_name,
+        "enroll_year":enroll_year,
+        "mobile":mobile
+    }
+    student.add(_student)
+    return redirect("/student/list")
+
+@app.route("/student/update", methods=["POST"])
+def update_student():   
+    id = request.form["id"]
+    name = request.form["name"]
+    class_name = request.form["class_name"]
+    enroll_year = request.form["enroll_year"]
+    mobile = request.form["mobile"]
+    _student = {
+        "id": int(id),
+        "name": name,
+        "class_name":class_name,
+        "enroll_year":enroll_year,
+        "mobile":mobile
+    }
+    student.update(_student)
+    return redirect("/student/list")
 
 
 if __name__ == '__main__':
