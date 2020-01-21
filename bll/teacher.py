@@ -49,14 +49,13 @@ def query(name=None):
 
     teacher_list = [t.to_dict() for t in teachers]
 
-
     data = [
         {
-            "id":t.id,
-            "name":t.name,
-            "photo":t.photo,
-            "brief":t.brief,
-            "lessons":[lesson.to_dict() for lesson in t.lessons]        
+            "id": t.id,
+            "name": t.name,
+            "photo": t.photo,
+            "brief": t.brief,
+            "lessons": [lesson.to_dict() for lesson in t.lessons]
         }
         for t in teachers
     ]

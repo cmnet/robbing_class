@@ -43,9 +43,10 @@ def update(lsn):
 
 
 @db_session
-def query(name=None):
-    if name:
-        lessons = select(l for l in Lesson if name in l.name)      # find lesson
+def query(keyword=None):
+    if keyword:
+        lessons = select(l for l in Lesson if keyword in l.name or keyword in str(l.id) or keyword in l.address)
+        # find lesson
     else:
         lessons = select(l for l in Lesson)
 

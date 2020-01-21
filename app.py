@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, redirect
 from bll import student, lesson, teacher
 from model import *
@@ -14,7 +13,7 @@ def index():
 @app.route('/teacher/list')
 def teacher_list():
     teachers = teacher.query()
-    return render_template('teacher.html',data=teachers)
+    return render_template('teacher.html', data=teachers)
 
 
 @app.route("/teacher/add")
@@ -26,16 +25,14 @@ def add_teacher():
 def edit_teacher():
     teacher_id = request.args["id"]
     data = teacher.info(int(teacher_id))
-    return render_template("edit_teacher.html",teacher=data)
+    return render_template("edit_teacher.html", teacher=data)
 
 
 @app.route("/teacher/save", methods=["POST"])
 def save_teacher():
     name = request.form["name"]
     brief = request.form["brief"]
-
-    _teacher = {"name":name,"brief":brief}
-
+    _teacher = {"name": name, "brief": brief}
     teacher.add(_teacher)
     return redirect("/teacher/list")
     # photo = requst.files[0]
@@ -60,16 +57,22 @@ def delete_teacher():
     teacher.delete(int(teacher_id))
     return redirect("/teacher/list")
 
+# ======================================================
+# ******************************************************
+# ======================================================
+
 
 @app.route('/lesson/list')
 def lesson_list():
-    res = lesson.query()
+    keyword = request.args.get("keyword")
+    res = lesson.query(keyword)
     return render_template('lesson.html', data=res, length=len(res))
 
 
 @app.route("/lesson/add")
 def add_lesson():
-    return render_template('add_lesson.html')
+    res = teacher.query()
+    return render_template('add_lesson.html', teachers=res)
 
 
 @app.route("/lesson/edit")
@@ -169,6 +172,10 @@ def delete_lesson():
     lesson.delete(int(lesson_id))
     return redirect("/lesson/list")
 
+# ======================================================
+# ******************************************************
+# ======================================================
+
 
 @app.route("/student/list")
 def student_list():
@@ -221,4 +228,4 @@ def update_student():
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True, use_reloader=True)
+    app.run(port=5008)

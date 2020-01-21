@@ -1,13 +1,44 @@
-<!--__author__ = "Jelly" -->
+<!-- __author__ = "Jelly" -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>课程列表</title>
+    <style>
+        .lessonDiv
+        {
+            margin-left: 10px;
+            background-color: #003e4b;
+            color: #cccccc;
+            margin-top: 20px;
+            width: 380px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .right{
+            float: right;
+        }
+        .icon_1{
+            width: 24px;
+            height: 24px;
+        }
+        .icon_2{
+            width: 32px;
+            height: 32px;
+        }
+    </style>
 </head>
 <body>
+    <form action="/lesson/list" method="get">
+    <img class="icon_2" src="/static/icon/search.png">&nbsp;<input type="text" name="keyword" placeholder="请输入要搜索的课程名/ID/地址" style="width:220px;">&nbsp;&nbsp;
+        <input type="submit" value="搜索">&nbsp;&nbsp;<a href="/lesson/add"><br><br>
+        <img class="icon_2" src="/static/icon/add.jpg"></a><br>
+    </form>
+    <div style="display: flex;float:left;">
     {% for lsn in data %}
-        <br>
+        <div class="lessonDiv">
+        ID: {{ lsn.id }}<div class="right"><a href="/lesson/edit?id={{ lsn.id }}"><img class="icon_1" src="/static/icon/edit.png"></a>&nbsp;&nbsp;
+            <a href="/lesson/delete?id={{ lsn.id }}"><img class="icon_1" src="/static/icon/close_filled.png"></a></div><br>
         课程名称 :  {{ lsn.name }}<br>
         授课老师 :  {{ lsn.teacher }}<br>
         班级人数 :  {{ lsn.student_number }}人<br>
@@ -18,21 +49,8 @@
         结束抢课时间 :  {{ lsn.robbing_end_time }}<br>
         课程简介 :  {{ lsn.brief }}<br>
         备注 :  {{ lsn.remark }}<br>
-
-        {% if loop.index != length %}
-            <br>
-            =================================================<br>
-            +++++++++++++++++++++++++++++++++++++++++++++++++<br>
-            =================================================<br>
-        {% endif %}
-        <a href="/lesson/delete?id={{ lsn.id }}">删除</a><br>
-        <a href="/lesson/edit?id={{ lsn.id }}">编辑</a><br><br>
+        </div>
     {% endfor %}
-
-
-
-    <a href="/lesson/add">新增课程</a>
-    <br>
-
+    </div>
 </body>
 </html>

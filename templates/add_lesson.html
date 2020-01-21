@@ -4,39 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <title>新增课程</title>
+    <style>
+        .input{
+            border: 2px solid #003E4B;
+            hight: 40px;
+            border-radius: 10px;
+            font-size: 17px;
+            padding: 5px;
+
+        }
+        .div{
+            padding: 5px;
+            background-color: #003E4B ;
+            width: 180px;
+            border-radius: 10px;
+            height: 40px;
+            color: #cccccc;
+        }
+    </style>
 </head>
 <body>
     <form action="/lesson/save" method="post">
-        课程名称 :  <input type="text" name="name" style="width:80px;"><br>
-        授课老师 :  <select name="teacher">
-        <option value="1">zhanglaos1</option>
-        <option value="8">zhanglaos2</option>
-    </select>
+        <div class="div" style="width: 180px">课程名称 :  <input type="text" name="name" style="width:80px;" class="input"></div><br>
+        <div class="div" style="width: 225px">授课老师 :  <select name="teacher" class="input">
+        {% for teacher in teachers %}
+        <option value="{{ teacher.id }}">{{ teacher.name }}</option>
+        {% endfor %}
+        </select>
+        </div>
         <br>
-        班级人数 :  <input type="text" name="student_number" style="width:20px;"><br>
-        开课时间 :
-        <input type="text" name="start_time_year" style="width:40px;">年
-        <input type="text" name="start_time_month" style="width:20px;">月
-        <input type="text" name="start_time_day" style="width:20px;">日
-        <input type="text" name="start_time_hour" style="width:20px;">时
+        <div class="div" style="width: 135px">班级人数 :  <input type="text" name="student_number" style="width:20px;" class="input"></div><br>
+        <div class="div" style="width: 330px">开课时间 :
+        <input type="text" name="start_time_year" style="width:40px;" class="input">年
+        <input type="text" name="start_time_month" style="width:20px;" class="input">月
+        <input type="text" name="start_time_day" style="width:20px;" class="input">日
+        <input type="text" name="start_time_hour" style="width:20px;" class="input">时
+        </div>
         <br>
-        开课地点 :
-        <input type="text" name="address_province" style="width:80px;">省 &nbsp;&nbsp;&nbsp;
-        <input type="text" name="address_city" style="width:80px;">市 &nbsp;&nbsp;&nbsp;
-        <input type="text" name="address_area" style="width:90px;">区 &nbsp;&nbsp;&nbsp;<br>
-        具体位置：<input type="text" name="address" style="width:90px;"><br>
+        <div class="div" style="width: 465px">开课地点 :
+        <input type="text" name="address_province" style="width:80px;" class="input">省 &nbsp;&nbsp;&nbsp;
+        <input type="text" name="address_city" style="width:80px;" class="input">市 &nbsp;&nbsp;&nbsp;
+        <input type="text" name="address_area" style="width:90px;" class="input">区 &nbsp;&nbsp;&nbsp;
+        </div>
         <br>
-        课程费用 :  <input type="text" name="price"><br>
-        开抢时间 :
-        <input type="text" name="robbing_start_time_month" style="width:20px;">月
-        <input type="text" name="robbing_start_time_day" style="width:20px;">日
-        <input type="text" name="robbing_start_time_hour" style="width:20px;">时<br>
-        结束抢课时间 :
-        <input type="text" name="robbing_end_time_month" style="width:20px;">月
-        <input type="text" name="robbing_end_time_day" style="width:20px;">日
-        <input type="text" name="robbing_end_time_hour" style="width:20px;">时<br>
-        课程简介 :  <textarea rous="5" cols="100" name="brief"></textarea><br>
-        备注 :  <input type="text" name="remark"><br>
+        <div class="div" style="width: 240px">具体位置：<input type="text" name="address" style="width:130px;" class="input"></div><br>
+        <br>
+        <div class="div" style="width: 200px">课程费用 :  <input type="text" name="price" style="width: 50px;" class="input"></div><br>
+        <div class="div" style="width: 260px">开抢时间 :
+        <input type="text" name="robbing_start_time_month" style="width:20px;" class="input">月
+        <input type="text" name="robbing_start_time_day" style="width:20px;" class="input">日
+        <input type="text" name="robbing_start_time_hour" style="width:20px;" class="input">时</div><br>
+        <div class="div" style="width: 275px">结束抢课时间 :
+        <input type="text" name="robbing_end_time_month" style="width:20px;" class="input">月
+        <input type="text" name="robbing_end_time_day" style="width:20px;" class="input">日
+        <input type="text" name="robbing_end_time_hour" style="width:20px;" class="input">时</div><br>
+        课程简介 :  <textarea rous="5" cols="100" name="brief" class="input"></textarea><br>
+        <div class="div" style="width: 300px">备注 :  <input type="text" name="remark" class="input"></div><br>
         <input type="submit" value="保存">
     </form>
 </body>
